@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="hirstroke@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="hirstroke">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="phpmyadmin"/>
+    <schema id="7" parent="1" name="test"/>
+    <table id="8" parent="2" name="alphabet">
+      <Comment>Database for storing Hiragana Characters</Comment>
+    </table>
+    <column id="9" parent="8" name="index">
+      <Position>1</Position>
+      <DataType>int(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="10" parent="8" name="alphabetName">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="11" parent="8" name="strokeNumb">
+      <Position>3</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="12" parent="8" name="alphaUrl">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="13" parent="8" name="noUrl">
+      <Position>5</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="14" parent="8" name="strokesUrl">
+      <Position>6</Position>
+      <DataType>varchar(1000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="15" parent="8" name="PRIMARY">
+      <ColNames>index</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

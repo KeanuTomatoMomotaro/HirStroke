@@ -1,0 +1,24 @@
+/* color charts:
+#ECEFF1 bluegrey highligt color
+#FF8A80 is red alert
+#D50000 red solid
+#00BFA5 is green correct
+#2196F3 is blue solid primary?
+*/
+
+body {
+  padding-top: 50px;
+  /*background-color: #ECEFF1;*/
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.figure{
+  padding: 10px;
+}
+
+
+a.thumbnail:hover{
+  background-color: #CFD8DC;
+}

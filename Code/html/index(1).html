@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hiragana Div Test</title>
+	<!-- Paper.js Library -->
+	<script type="text/javascript" src="../js/paper-full.min.js"></script>
+	<!-- paperscript -->
+	<script type="text/paperscript" canvas="Hiragana_Canvas">
+
+	// tool.minDistance = 10;
+	// tool.maxDistance = 12;
+
+	tool.fixedDistance = 30;
+	//declare mypath variable outside of functions
+	var myPath;
+	var strokeAmount; //stroke count of letters
+	var startPoint; //coordinate of line startPoint
+	var endPoint; // coordinate of line endPoint
+	//variables for individual x and y values;
+	var x1;
+	var x2;
+	var y1;
+	var y2;
+	//set a new path every click
+	function onMouseDown(event){
+		myPath = new Path();
+		myPath.fillColor = "black";
+		myPath.add (event.point);
+		startPoint = event.point.round();
+		x1= startPoint.x;
+		y1 = startPoint.y;
+		console.log(startPoint);
+	}
+	//add point to the path every drag
+	function onMouseDrag(event){
+		var step = event.delta / 2;
+		step.angle += 90;
+
+		var top = event.middlePoint + step;
+		var bottom = event.middlePoint - step;
+
+		myPath.add(top);
+		myPath.insert(0, bottom);
+		myPath.smooth();
+		}
+
+	function onMouseUp(event){
+		myPath.add(event.point);
+		myPath.closed = true;
+		myPath.smooth();
+		endPoint = event.point.round();
+		console.log(endPoint);
+		x2= endPoint.x;
+		y2 = endPoint.y;
+		//todo: move this to a variable to check with number of lines
+		// console.log(event.count);
+		strokeAmount = event.count+1;
+		showStrokeAmount(strokeAmount);
+		showPoints();
+	}
+	//display stroke amount
+	function showStrokeAmount(strokeAmount){
+		document.getElementById("strokeCounter").innerHTML = strokeAmount;
+	}
+	function showPoints(){
+		document.getElementById("Coor").innerHTML ="x1 ="+x1+", y1 ="+y1+", x2 ="+x2+", y2 ="+y2 ;
+	}
+	</script>
+</head>
+<body>
+	<div>
+	<canvas id="Hiragana_Canvas" width="360" height="360" style="border:1px solid #000000;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+	<p id="strokeCounter"></p>
+	<p id="Coor"></p>
+</div>
+</body>
+</html>
